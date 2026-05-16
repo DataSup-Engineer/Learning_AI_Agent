@@ -4,7 +4,7 @@
 [![Google Cloud](https://img.shields.io/badge/Google%20Cloud-Vertex%20AI-4285F4?style=for-the-badge&logo=google-cloud&logoColor=white)](https://cloud.google.com/vertex-ai)
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.100+-009688?style=for-the-badge&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com/)
 
-> **A distributed multi-agent system that transforms any topic into a comprehensive, fact-checked educational course in seconds.**
+> **A distributed multi-agent system that transforms any topic into a comprehensive, fact-checked learning in seconds.**
 
 Turn your curiosity into knowledge. This project leverages the **Google Agent Development Kit (ADK)** and the **A2A (Agent-to-Agent) protocol** to orchestrate a team of specialized AI microservices that research, evaluate, and build structured learning content.
 
@@ -38,7 +38,7 @@ graph TD
 - **Autonomous Research Loop**: A specialized **Judge Agent** evaluates the output of the **Researcher Agent**, triggering recursive research iterations if quality thresholds aren't met.
 - **A2A Protocol Implementation**: Industry-standard agent-to-agent communication using Google's latest ADK framework.
 - **Microservice Scalability**: Each agent (Researcher, Judge, Content Builder) is containerized and can be deployed independently.
-- **Premium User Experience**: A modern, dark-mode dashboard featuring:
+- A modern, dark-mode dashboard featuring:
   - Real-time agent status tracking.
   - Dynamic Markdown rendering with automatic Table of Contents.
   - High-performance SSE (Server-Sent Events) for live feedback.
@@ -63,8 +63,8 @@ graph TD
 
 ### 2. Installation
 ```bash
-git clone https://github.com/yourusername/agentic-course-creator.git
-cd agentic-course-creator
+git clone https://github.com/yourusername/Learning_AI_Agent.git
+cd Learning_AI_Agent
 cp .env.example .env # Add your Google Cloud Project ID
 ```
 
@@ -90,7 +90,7 @@ cd app && uv run python3 main.py
 
 ---
 
-## 🧠 Meet the Agents
+## 🧠 Agents
 
 | Agent | Responsibility | Tools/Capabilities |
 | :--- | :--- | :--- |
