@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Content | AI Course Creator</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Inter:wght@400;500;600&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body class="course-page">
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+    </div>
+
+    <div class="container">
+        <header class="course-header">
+            <a href="index.html" class="back-btn">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd" />
+                </svg>
+                Back to Dashboard
+            </a>
+            <div class="logo">✨ <span id="course-title-nav">Course</span></div>
+            <button class="primary-btn" onclick="window.print()">Download PDF</button>
+        </header>
+
+        <div class="course-layout">
+            <aside class="course-sidebar">
+                <div class="sidebar-title">Table of Contents</div>
+                <nav id="toc" class="toc-list"></nav>
+            </aside>
+
+            <main class="course-main">
+                <div id="course-display" class="course-content">
+                    <div class="loading-course">Generating your course view...</div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const courseData = localStorage.getItem('currentCourse');
+            const topic = localStorage.getItem('currentTopic') || 'Your Course';
+            const display = document.getElementById('course-display');
+            const toc = document.getElementById('toc');
+            const navTitle = document.getElementById('course-title-nav');
+
+            navTitle.textContent = topic;
+
+            if (courseData) {
+                // Parse markdown
+                const htmlContent = marked.parse(courseData);
+                display.innerHTML = htmlContent;
+
+                // Generate TOC
+                const headers = display.querySelectorAll('h2');
+                headers.forEach((header, index) => {
+                    const id = 'section-' + index;
+                    header.id = id;
+                    
+                    const link = document.createElement('a');
+                    link.href = '#' + id;
+                    link.className = 'toc-link';
+                    link.textContent = header.textContent;
+                    
+                    link.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        header.scrollIntoView({ behavior: 'smooth' });
+                        document.querySelectorAll('.toc-link').forEach(l => l.classList.remove('active'));
+                        link.classList.add('active');
+                    });
+                    
+                    toc.appendChild(link);
+                });
+            } else {
+                display.innerHTML = '<div class="error">No course content found. Please go back and generate a course.</div>';
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Course Creator | Build Your Knowledge</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <div class="container landing-page">
+        <header>
+            <div class="logo">
+                <div class="logo-icon">✨</div>
+                <span>Agentic Course Creator</span>
+            </div>
+        </header>
+
+        <main class="hero-section">
+            <h1>Turn any topic into a <span class="gradient-text">complete course</span>.</h1>
+            <p class="subtitle">Enter a subject, and our multi-agent AI system will research, fact-check, and write a comprehensive course for you in seconds.</p>
+
+            <form id="create-form" class="hero-form">
+                <input type="text" id="topic-input" placeholder="e.g. History of Rome, Quantum Computing, or Vegan Cooking" required>
+                <button type="submit" id="create-button">
+                    <span>Generate Course</span>
+                    <svg viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                    </svg>
+                </button>
+            </form>
+
+            <div id="progress-container" class="progress-container hidden">
+                <div class="agent-status">
+                    <div class="spinner"></div>
+                    <span id="status-text" class="status-text">Initializing agents...</span>
+                </div>
+                <div class="progress-steps">
+                    <div id="step-researcher" class="step">
+                        <div class="step-icon">🔍</div>
+                        <span class="step-label">Researching</span>
+                    </div>
+                    <div id="step-judge" class="step">
+                        <div class="step-icon">⚖️</div>
+                        <span class="step-label">Judging</span>
+                    </div>
+                    <div id="step-builder" class="step">
+                        <div class="step-icon">✍️</div>
+                        <span class="step-label">Building</span>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
